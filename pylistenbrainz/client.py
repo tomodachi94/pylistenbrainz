@@ -20,12 +20,12 @@ import time
 
 from datetime import datetime
 from enum import Enum
-from pylistenbrainz import errors
-from pylistenbrainz.listen import LISTEN_TYPE_IMPORT, LISTEN_TYPE_PLAYING_NOW, LISTEN_TYPE_SINGLE
-from pylistenbrainz.playlist import PlaylistMetadata
-from pylistenbrainz.playlist import _playlist_metadata_from_response, _playlist_from_response
-from pylistenbrainz.playlist import PLAYLIST_QUERY_TYPE_CREATED_BY, PLAYLIST_QUERY_TYPE_COLLABORATOR, PLAYLIST_QUERY_TYPE_CREATED_FOR
-from pylistenbrainz.utils import _validate_submit_listens_payload, _convert_api_payload_to_listen
+from . import errors
+from .listen import LISTEN_TYPE_IMPORT, LISTEN_TYPE_PLAYING_NOW, LISTEN_TYPE_SINGLE
+from .playlist import PlaylistMetadata
+from .playlist import _playlist_metadata_from_response, _playlist_from_response
+from .playlist import PLAYLIST_QUERY_TYPE_CREATED_BY, PLAYLIST_QUERY_TYPE_COLLABORATOR, PLAYLIST_QUERY_TYPE_CREATED_FOR
+from .utils import _validate_submit_listens_payload, _convert_api_payload_to_listen
 from urllib.parse import urljoin
 
 STATS_SUPPORTED_TIME_RANGES = (
