@@ -16,8 +16,8 @@
 
 __version__ = '0.5.0'
 
-from pylistenbrainz.client import ListenBrainz
-from pylistenbrainz.listen import Listen
-from pylistenbrainz.listen import LISTEN_TYPE_IMPORT, LISTEN_TYPE_PLAYING_NOW, LISTEN_TYPE_SINGLE
-from pylistenbrainz.playlist import Playlist, PlaylistMetadata, PlaylistTrack
-from pylistenbrainz.playlist import PLAYLIST_QUERY_TYPE_CREATED_BY, PLAYLIST_QUERY_TYPE_COLLABORATOR, PLAYLIST_QUERY_TYPE_CREATED_FOR
+from .client import ListenBrainz
+from .listen import Listen
+from .listen import LISTEN_TYPE_IMPORT, LISTEN_TYPE_PLAYING_NOW, LISTEN_TYPE_SINGLE
+from .playlist import Playlist, PlaylistMetadata, PlaylistTrack
+from .playlist import PLAYLIST_QUERY_TYPE_CREATED_BY, PLAYLIST_QUERY_TYPE_COLLABORATOR, PLAYLIST_QUERY_TYPE_CREATED_FOR
