@@ -237,12 +237,12 @@ def _playlist_metadata_from_response(payload):
     ext = data['extension']['https://musicbrainz.org/doc/jspf#playlist']
     return PlaylistMetadata(
         identifier = _url_to_mbid(data['identifier'], kind='playlist'),
-        annotation = data['annotation'],
+        annotation = data.get('annotation'),
         creator = data['creator'],
         date = datetime.datetime.fromisoformat(data['date']),
         title = data['title'],
         algorithm_metadata = ext.get('algorithm_metadata'),
-        collaborators = ext['collaborators'],
+        collaborators = ext.get('collaborators', []),
         last_modified_at = datetime.datetime.fromisoformat(
             ext['last_modified_at']
         ),
@@ -270,8 +270,12 @@ def _playlist_from_response(payload):
             _url_to_mbid(artist, kind='artist')
             for artist in ext_artist_identifiers
         ]
+        track_identifiers = [
+            _url_to_mbid(track, kind='recording')
+            for track in track['identifier']
+        ]
         tracks.append(PlaylistTrack(
-            identifier = _url_to_mbid(track['identifier'], kind='recording'),
+            identifier = track_identifiers[0],
             creator = track['creator'],
             title = track['title'],
             added_at = datetime.datetime.fromisoformat(ext['added_at']),
